@@ -21,7 +21,7 @@ const Home = () => {
     <div className="text-white flex flex-col-reverse md:flex-row w-full justify-between items-center p-10 md:p-20">
       {/* Left Section */}
       <div className="md:w-2/4 md:pt-10">
-        <h1 className="text-2xl md:text-6xl font-bold flex leading-normal tracking-tighter">
+        <h1 className="text-2xl md:text-5xl font-bold flex leading-normal tracking-tighter">
           <TextChange />
         </h1>
         <p className="text-sm md:text-xl mt-4 text-gray-300 leading-relaxed">
@@ -33,14 +33,14 @@ const Home = () => {
         <div className="space-x-4">
           <button
             className="mt-5 md:mt-10 text-white py-2 px-5 text-sm md:text-lg font-semibold rounded-3xl 
-  bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 
+ bg-orange-500
   shadow-lg shadow-pink-500/40 
   transition duration-300 transform hover:scale-105 hover:shadow-pink-400/70"
           >
             Let's Connect
           </button>
 
-          <a
+          {/* <a
             href="/assets/resume/Ayush_Resume.docx"
             download
             className="inline-flex items-center gap-2 mt-5 md:mt-10 text-white py-2 px-5 text-sm md:text-lg font-semibold rounded-3xl 
@@ -50,7 +50,7 @@ const Home = () => {
           >
             <FaDownload />
             Download Resume
-          </a>
+          </a> */}
         </div>
       </div>
 
