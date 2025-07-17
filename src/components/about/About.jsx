@@ -1,73 +1,79 @@
 import React from "react";
 import photo from "../../assets/photos/384.jpg";
 import { IoArrowForward } from "react-icons/io5";
+import { motion } from "framer-motion";
+
+const roles = [
+  {
+    title: "Frontend Developer",
+    description:
+      "I specialize in creating intuitive and visually appealing web interfaces using HTML, CSS, JavaScript, and ReactJS. I focus on responsive design, dynamic content, and smooth animations.",
+  },
+  {
+    title: "Java Full Stack Developer",
+    description:
+      "With experience in Java, Spring Boot, and RESTful APIs, I build robust web applications. On the frontend, I use React to deliver seamless user interfaces while the backend ensures efficiency and security.",
+  },
+  {
+    title: "React Developer",
+    description:
+      "I build fast, component-driven applications using ReactJS. I'm skilled in hooks, context, and tools like Redux and React Router for scalable and interactive UI.",
+  },
+];
 
 const About = () => {
   return (
-    <div
+    <section
       id="about"
-      className="text-white md:flex overflow-hidden items-center md:flex-wrap md:justify-center bg-black shadow-xl mx-0 md:mx-20 bg-opacity-30 rounded-xl p-12 "
+      className="min-h-screen w-full bg-black px-6 md:px-24 py-20 text-white"
     >
-      <div>
-        <h2 className="text-2xl md:text-4xl font-bold ">About Me</h2>
-        <div className="md:flex flex-wrap flex-col md:flex-row items-center gap-8">
-          <img className="md:h-80 rounded-lg" src={photo} alt="Ayush Mahapatra" />
-          <ul className="mt-6 md:mt-0">
-            {/* Frontend Developer */}
-            <div className="flex gap-3 py-4">
-              <IoArrowForward size={30} className="mt-1" />
-              <span className="w-96">
-                <h1 className="text-xl md:text-2xl font-semibold leading-normal">
-                  Frontend Developer
-                </h1>
-                <p className="text-sm md:text-md leading-tight">
-                  As a Frontend Developer, I specialize in creating intuitive and
-                  visually appealing web interfaces. With proficiency in HTML, CSS,
-                  JavaScript, and modern frontend frameworks like ReactJS, I ensure
-                  seamless user experiences and optimized performance across all devices.
-                  I focus on clean, responsive design, integrating dynamic content,
-                  and enhancing interactivity with smooth animations and transitions.
-                </p>
-              </span>
-            </div>
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-5xl font-bold text-center text-orange-400 mb-12"
+      >
+        About Me
+      </motion.h2>
 
-            {/* Java Full Stack Developer */}
-            <div className="flex gap-3 py-4">
-              <IoArrowForward size={30} className="mt-1" />
-              <span className="w-96">
-                <h1 className="text-xl md:text-2xl font-semibold leading-normal">
-                  Java Full Stack Developer
-                </h1>
-                <p className="text-sm md:text-md leading-tight">
-                  As a Java Full Stack Developer, I bring expertise in both frontend and
-                  backend development. With experience in Java, Spring Boot, and RESTful
-                  APIs, I build robust, scalable web applications. On the frontend, I use
-                  technologies like React to deliver seamless user interfaces while leveraging
-                  Java on the backend to build efficient and secure services.
-                </p>
-              </span>
-            </div>
+      <div className="flex flex-col md:flex-row items-center gap-12">
+        {/* Image */}
+        <motion.img
+          src={photo}
+          alt="Ayush Mahapatra"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="w-72 h-72 object-cover rounded-xl border-4 border-orange-500 shadow-md"
+        />
 
-            {/* React Developer */}
-            <div className="flex gap-3 py-4">
-              <IoArrowForward size={30} className="mt-1" />
-              <span className="w-96">
-                <h1 className="text-xl md:text-2xl font-semibold leading-normal">
-                  React Developer
-                </h1>
-                <p className="text-sm md:text-md leading-tight">
-                  As a React Developer, I focus on building fast and dynamic web applications
-                  with ReactJS. With a deep understanding of component-based architecture, state
-                  management, and hooks, I create highly interactive and responsive user
-                  interfaces. I also have experience with tools like Redux for state management and
-                  React Router for seamless navigation in complex applications.
+        {/* Description */}
+        <ul className="flex-1 space-y-10">
+          {roles.map((role, index) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="flex items-start gap-4"
+            >
+              <IoArrowForward
+                size={28}
+                className="text-orange-400 mt-1 flex-shrink-0"
+              />
+              <div>
+                <h3 className="text-2xl font-semibold text-white mb-1">
+                  {role.title}
+                </h3>
+                <p className="text-md text-gray-300 leading-relaxed">
+                  {role.description}
                 </p>
-              </span>
-            </div>
-          </ul>
-        </div>
+              </div>
+            </motion.li>
+          ))}
+        </ul>
       </div>
-    </div>
+    </section>
   );
 };
 
